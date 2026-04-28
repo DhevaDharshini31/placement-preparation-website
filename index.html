@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Placement Preparation Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:linear-gradient(120deg,#eef2f7,#f8fafc);}
+header{background:linear-gradient(90deg,#2c3e50,#4ca1af);color:white;padding:25px;text-align:center;border-bottom-left-radius:20px;border-bottom-right-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
+header h1{font-size:28px}
+header p{opacity:0.9}
+nav{display:flex;justify-content:center;gap:10px;margin:15px}
+nav a{background:white;padding:8px 14px;border-radius:20px;text-decoration:none;color:#2c3e50;font-weight:500;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
+nav a:hover{background:#2c3e50;color:white}
+section{padding:20px;max-width:900px;margin:auto}
+.card{background:white;padding:20px;margin:15px 0;border-radius:16px;box-shadow:0 6px 15px rgba(0,0,0,0.08);transition:0.3s}
+.card:hover{transform:translateY(-3px)}
+h2{margin-bottom:10px;color:#2c3e50}
+button{margin-top:10px;padding:10px 16px;border:none;border-radius:25px;background:linear-gradient(90deg,#4ca1af,#2c3e50);color:white;cursor:pointer;font-weight:500}
+button:hover{opacity:0.9}
+p{margin-top:10px}
+ul{padding-left:20px}
+footer{text-align:center;padding:12px;margin-top:20px;background:#2c3e50;color:white;border-top-left-radius:15px;border-top-right-radius:15px}
+</style>
+</head>
+<body>
+<header>
+<h1>Smart Placement Preparation Portal</h1>
+<p>Your one-stop solution for placement success</p>
+</header>
+
+<nav>
+<a href="#aptitude">Aptitude</a>
+<a href="#technical">Technical</a>
+<a href="#hr">HR</a>
+<a href="#resume">Resume</a>
+<a href="#quiz">Quiz</a>
+</nav>
+<section id="aptitude">
+<h2>Aptitude Practice</h2>
+<div class="card">
+<button onclick="getAptitude()">Get Question</button>
+<p id="aptQ"></p>
+</div>
+</section>
+
+<section id="technical">
+<h2>Technical Notes</h2>
+<div class="card">
+<h3>DBMS</h3>
+<ul><li>Manages data efficiently</li><li>Examples: MySQL, Oracle</li></ul>
+<h3>Operating System</h3>
+<ul><li>Controls hardware & software</li><li>Examples: Windows, Linux</li></ul>
+<h3>SQL</h3>
+<ul><li>Database query language</li><li>SELECT, INSERT, UPDATE</li></ul>
+</div>
+</section>
+
+<section id="hr">
+<h2>HR Practice</h2>
+<div class="card">
+<button onclick="getQuestion()">Get Question</button>
+<p id="randomQ"></p>
+</div>
+</section>
+
+<section id="resume">
+<h2>Resume Tips</h2>
+<div class="card">
+<ul>
+<li>Keep it short & clear</li>
+<li>Highlight skills & projects</li>
+<li>Use clean format</li>
+<li>Avoid mistakes</li>
+</ul>
+</div>
+</section>
+
+<section id="quiz">
+<h2>Quick Quiz</h2>
+<div class="card">
+<button onclick="getQuiz()">Start Quiz</button>
+<p id="quizQ"></p>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Placement Portal</p>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+// ---------- COMBINED QUIZ ----------
+function getQuiz(){
+const quiz = [
+{q:"Aptitude: What is 20% of 150?", a:"150×20/100 = 30"},
+{q:"Aptitude: 5 × 6 = ?", a:"5×6 = 30"},
+{q:"Aptitude: Average of 5,10,15?", a:"(5+10+15)/3 = 10"},
+{q:"HR: Tell me about yourself", a:"Brief intro: education + skills"},
+{q:"HR: Why should we hire you?", a:"Skills + value"},
+{q:"HR: What motivates you?", a:"Learning + goals"},
+{q:"Aptitude: 12² = ?", a:"144"},
+{q:"HR: What are your strengths?", a:"2–3 strengths"},
+{q:"Aptitude: 100/4 = ?", a:"25"},
+{q:"HR: Where do you see yourself in 5 years?", a:"Career growth"}
+];
+
+const random = quiz[Math.floor(Math.random()*quiz.length)];
+
+document.getElementById("quizQ").innerHTML =
+random.q +
+'<br><button onclick="showQuizSolution(\''+random.a+'\')">Show Solution</button>' +
+'<p id="quizSol" style="display:none;"></p>';
+}
+
+function showQuizSolution(ans){
+const sol = document.getElementById("quizSol");
+sol.style.display = "block";
+sol.innerText = ans;
+}
+</script>
+</body>
+</html>
